@@ -1,12 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-//#define  LOCAL
+#define  LOCAL
 #define MAXN 1200
 #define MAXM 150
-char code[MAXN];
-char guess[MAXM][MAXN];
-char tempt[MAXN];
+int code[MAXN];
+int guess[MAXM][MAXN];
 int flagCode[MAXN];
 int flagGuess[MAXN];
 int main()
@@ -21,15 +20,15 @@ int main()
 	{
 		times++;
 		int NumStrong, NumWeak, NumGuess = 0;
-		getchar();
-		fgets(code, MAXN, stdin);
+		int l;
+		for (l = 0; l < n; l++)
+			scanf("%d", &code[l]);
 		while(1) // loop for every guess in Game1/ Game2
 		{
-			memset(tempt, 0, n*sizeof(char));
-			fgets(tempt, MAXN, stdin);
-			if (tempt[0] == '0')
+			for (l = 0; l < n; l++)
+				scanf("%d", &guess[NumGuess][l]);
+			if (guess[NumGuess][0] == 0)
 				break;
-			memcpy(&guess[NumGuess][0], &tempt[0], n*sizeof(char));
 			NumGuess++;
 		}
 		printf("Game %d:\n", times);
@@ -42,7 +41,7 @@ int main()
 			int i, j;
 			for (i = 0; i < n; i++) // calculate NumStrong
 			{
-				if (code[2*i] == guess[k][2*i])
+				if (code[i] == guess[k][i])
 				{
 					flagCode[i] = 1; flagGuess[i] = 1;
 					NumStrong++;
@@ -54,7 +53,7 @@ int main()
 				{
 					if (!flagCode[i]&&!flagGuess[j])
 					{
-						if (code[2*i] == guess[k][2*j])
+						if (code[i] == guess[k][j])
 						{
 							flagCode[i] = 1; flagGuess[j] = 1;
 							NumWeak++;
@@ -68,3 +67,4 @@ int main()
 	}
 	return 0;
 }
+
