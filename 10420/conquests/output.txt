@@ -1,0 +1,8 @@
+Canada 2
+China 1
+England 2
+France 1
+Germany 1
+Japan 1
+Spain 3
+USA 3
