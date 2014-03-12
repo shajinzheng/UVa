@@ -1,9 +1,8 @@
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #define LOCAL
-#define NumCase 100
-#define MAXN 1000
+#define MAXN 20000
 int marble[MAXN];
 int query[MAXN];
 
@@ -19,22 +18,16 @@ int main()
 	freopen("output.txt", "w", stdout);
 #endif // LOCAL
 	int times = 0, n, q;
-	scanf("%d", &n); scanf("%d", &q); getchar();
+	scanf("%d", &n); scanf("%d", &q);
 	while ((n != 0)&&(q != 0))
 	{
 		times++;
 		printf("CASE# %d:\n", times);
 		int i, j;
 		for (i = 0; i < n; i++)
-		{
 			scanf("%d", &marble[i]);
-			getchar();
-		}
 		for (i = 0; i < q; i++)
-		{
 			scanf("%d", &query[i]);
-			getchar();
-		}
 		qsort(marble, n, sizeof(int), compare);
 		for (i = 0; i < q; i++)
 		{

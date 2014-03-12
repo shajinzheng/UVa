@@ -1,6 +1,6 @@
-#include <stdlib.h>
 #include <stdio.h>
-#include <string>
+#include <stdlib.h>
+#include <string.h>
 #define LOCAL
 #define MAXLine 2100
 #define MAXN  100
